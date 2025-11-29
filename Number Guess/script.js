@@ -8,20 +8,24 @@ let numberChosen = randomNumber();
 guessButton.addEventListener("click", function(){
   let isCorrect = numberCheck(Number(numberInput.value), numberChosen);
   if (isCorrect === "correct"){
-    numberHint.style.color = "green";
+    numberHint.style.color = "lime";
     numberHint.textContent = "Number is: CORRECT";
     guessButton.style.display = "none";
     retryButton.style.display = "inline-block";
+    numberInput.readOnly = true;
+    numberInput.style.opacity = 0.5;
   }
   else if (isCorrect === "too high"){
     numberHint.style.color = "red";
     numberHint.textContent = "Number is: too high";
+    numberInput.value = "";
   }
   else {
-    numberHint.style.color = "blue";
+    numberHint.style.color = "cyan";
     numberHint.textContent = "Number is: too low";
+    numberInput.value = "";
   }
-  numberInput.value = "";
+ 
 });
 
 function randomNumber(){
@@ -29,12 +33,17 @@ function randomNumber(){
   return x;
 }
 
+
 retryButton.addEventListener("click", function(){
   numberChosen = randomNumber();
-  numberHint.style.color = "black";
+  numberHint.style.color = "white";
   numberHint.textContent = "Number is: ";
   retryButton.style.display = "none";
   guessButton.style.display = "inline-block";
+  numberInput.readOnly = false;
+  numberInput.style.color = "black"
+  numberInput.value = "";
+  numberInput.style.opacity = 1;
 });
 
 function numberCheck(x, y){

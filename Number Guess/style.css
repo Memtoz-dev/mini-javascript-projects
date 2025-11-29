@@ -1,0 +1,162 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body * {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100vw;
+  background-color: #ff6f00;
+}
+
+#gradient {
+  background: radial-gradient(circle 750px at top right, rgba(255, 225, 0, 0.9), transparent);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  animation: breathing 14s ease infinite;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+  height: 500px;
+  width: clamp(400px, 50%, 600px);
+  border-radius: 2rem;
+  background: linear-gradient(50deg, #ff741d 60%, rgb(255, 157, 0));
+  color: #F2F0EF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+button {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  background-color: rgb(227, 38, 38);
+  color: white;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(103, 2, 35, 0.4);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.533);
+}
+
+input {
+  width: clamp(100px, 100%, 300px);
+  height: 5rem;
+  font-size: 1.5rem;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.415);
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  border: none;
+  text-align: center;
+}
+
+h1, h2 {
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  opacity: 0.8;
+}
+
+p {
+  font-size: clamp(1rem, 40vw, 1.5rem);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+input::placeholder {
+  color: #F2F0EF;
+  opacity: 0.7;
+}
+
+
+
+/* Remove arrows in Chrome, Edge, Safari */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@keyframes breathing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 768px){
+  .main-container {
+    justify-content: space-evenly;
+    height: 100dvh;
+    width: 100vw;
+    border-radius: 0;
+    padding: 3rem 0.5rem;
+    background-color: transparent;
+  }
+
+  button {
+    padding: 1rem 3rem;
+    width: 75%;
+    height: 150px;
+    font-size: clamp(1rem, 7vw, 2rem);
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: clamp(0.5rem, 70vw, 2rem);
+  }
+
+  input {
+    width: 75%;
+    height: 150px;
+    font-size: 3rem;
+  }
+
+}
